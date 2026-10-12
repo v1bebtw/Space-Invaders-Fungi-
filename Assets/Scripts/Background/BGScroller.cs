@@ -13,7 +13,6 @@ namespace Background
         private void Start()
         {
             _startPosition = transform.position;
-            Debug.Log(transform.position);
         }
 
         private void Update()

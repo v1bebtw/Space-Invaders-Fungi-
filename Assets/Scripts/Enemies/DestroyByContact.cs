@@ -8,6 +8,7 @@ namespace Enemies
     {
         [SerializeField] private GameObject _explosion;
         [SerializeField] private GameObject _playerExplosion;
+        public int scorePoint;
 
         private void OnTriggerEnter(Collider other)
         {
