@@ -9,7 +9,7 @@ namespace Enemies
         [SerializeField] private float _minSpeed;
         [SerializeField] private float _maxSpeed;
 
-        private void Start()
+        private void OnEnable()
         {
             GetComponent<Rigidbody>().linearVelocity = transform.forward * Random.Range(_minSpeed, _maxSpeed);
         }

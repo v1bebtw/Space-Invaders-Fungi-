@@ -1,22 +1,17 @@
-using System;
+using Pool;
+using Bolts;
 using UnityEngine;
-using Zenject;
 
 namespace Enemies
 {
     public class DestroyByBoundary : MonoBehaviour
     {
-        private AsteroidPool _asteroidPool;
-
-        [Inject]
-        public void Construct(AsteroidPool asteroidPool)
-        {
-            _asteroidPool = asteroidPool;
-        }
-
         private void OnTriggerExit(Collider other)
         {
-            _asteroidPool.Return(new PooledObject(other.gameObject));
+            if (other.GetComponentInParent<Bolt>() is { } bolt)
+                bolt.ReleaseToPool();
+            else if (other.GetComponentInParent<Asteroid>() is { } asteroid)
+                asteroid.ReleaseToPool();
         }
     }
 }

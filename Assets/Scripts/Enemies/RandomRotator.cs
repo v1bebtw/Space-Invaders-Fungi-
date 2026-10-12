@@ -8,7 +8,7 @@ namespace Enemies
     {
         [SerializeField] private float _tumble;
 
-        private void Start()
+        private void OnEnable()
         {
             GetComponent<Rigidbody>().angularVelocity = Random.insideUnitSphere * _tumble;
         }
